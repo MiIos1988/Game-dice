@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.container {
+    border: 1px solid black;
+    width: 50%;
+    /* height: 70vh; */
+    margin: 100px auto;
+}
+
+.rollDice>p {
+    text-align: center;
+    padding: 10px;
+    background-color: darkcyan;
+}
+
+.rollDice {
+    position: relative;
+}
+
+.rollDice>div {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(218, 100, 33);
+    text-align: center;
+    line-height: 50px;
+    font-size: 2rem;
+}
+
+.game {
+    height: 500px;
+    display: flex;
+    /* width: 100%; */
+}
+
+.pl1,
+.pl2 {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pl1 {
+    background-color: aqua;
+}
+
+.pl2 {
+    background-color: rgb(185, 156, 81);
+}
+
+.allDace {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.allDace img {
+    width: 30px;
+    display: flex;
+    margin: 5px;
+    /* background-color: white; */
+}
+
+.diceAnimationL>img,
+.diceAnimationR>img {
+    width: 150px;
+}
+
+.win {
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(218, 100, 33);
+    ;
+}
