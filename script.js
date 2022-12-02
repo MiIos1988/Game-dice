@@ -1,9 +1,7 @@
 const name1 = document.querySelector(".pl1 > .name >h2")
 const name2 = document.querySelector(".pl2 > .name >h2")
 const roundTag = document.querySelector(".round")
-const win = document.querySelector(".win >h3")
 
-let maxRound = 3;
 let round = 1;
 
 const player1 = {
@@ -19,6 +17,7 @@ const player2 = {
     score: 0,
 }
 let dices = [
+
     null,
     "img/dice-1.png",
     "img/dice-2.png",
@@ -29,25 +28,37 @@ let dices = [
 ];
 
 let players = [player1, player2]
-let currentPlayer = null
-let playersIndex = null
 
-startGame()
 
 function random(max, min) {
     return Math.floor(Math.random() * (max - min) + min)
 }
 
 function startGame() {
-    playersIndex = random(2, 0)
-    currentPlayer = players[playersIndex]
+    let whoPlaysFirst = players[random(2, 0)]
+
+    roundTag.innerText = round;
     name1.innerText = player1.name
     name2.innerText = player2.name
 
-    rotateDice()
+    // if ((player1.allDice.querySelectorAll("img").length) === (player2.allDice.querySelectorAll("img").length)) {
+    //     round++
+    // }
+
+    rotateDice(whoPlaysFirst)
+
+   
+
 }
 
-function rotateDice() {
+function saveThrow(score, player) {
+    player.score += score
+    player.allDice.innerHTML += `<img src="${dices[`${score}`]}">`;
+    if (player1.allDice)
+        startGame()
+}
+
+function rotateDice(player) {
     let numberImg = random(7, 1)
     let stopDice = setInterval(() => {
 
@@ -56,9 +67,9 @@ function rotateDice() {
     }, 100)
     setTimeout(() => {
         clearInterval(stopDice)
-        currentPlayer.dice.setAttribute("src", dices[numberImg])
-        saveThrow(numberImg)
-        // rotateDice(player)
+        player.dice.setAttribute("src", dices[numberImg])
+        saveThrow(numberImg, player)
+
 
     }, 3000
     )
@@ -100,6 +111,7 @@ function upRound() {
 }
 
 function startDice(player) {
+    console.log("object");
     let numberImg = random(7, 1)
     player.dice.setAttribute("src", `img/dice-${numberImg}.png`)
 }
