@@ -3,7 +3,7 @@ const name2 = document.querySelector(".pl2 > .name >h2")
 const roundTag = document.querySelector(".round")
 const win = document.querySelector(".win >h3")
 
-let maxRound = 3;
+let maxRound = 5;
 let round = 1;
 
 const player1 = {
