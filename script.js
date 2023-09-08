@@ -57,7 +57,6 @@ function rotateDice() {
         clearInterval(stopDice)
         currentPlayer.dice.setAttribute("src", dices[numberImg])
         saveThrow(numberImg)
-        // rotateDice(player)
 
     }, 3000
     )
